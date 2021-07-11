@@ -73,4 +73,18 @@ mysql>mysql> INSERT INTO address_book
       +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
       2 rows in set (0.04 sec)
 
-    mysql>
+/* UC-4- editing the existing contact using name */
+mysql> UPDATE address_book
+    -> SET address = 'KGF' WHERE first_name = 'Raj';
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book;
+
+      +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+      | first_name | last_name | address         | city      | state         | zip    | phone_number | email_id             |
+      +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+      |  Raj       | Tarun     | KGF             | Bangarpet |  Karnataka    | 563114 | 8088546145   | RajTarun@gmail.com   |
+      |  Manoj     | Kumar     | MGRoad          | Bengaluru |  Karnataka    | 560038 | 9902545780   | Manojkumar@gmail.com |
+      +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
+      2 rows in set (0.03 sec)
