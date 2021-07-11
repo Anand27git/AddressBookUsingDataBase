@@ -54,4 +54,23 @@ mysql> desc address_book;
 +--------------+--------------+------+-----+---------+-------+
 8 rows in set (0.07 sec)
 
-mysql>
+/* UC-3-Inserting the new contacts to address_book */
+
+mysql>mysql> INSERT INTO address_book
+          -> (first_name, last_name, address, city, state, zip, phone_number, email_id ) VALUES
+          -> ('Manoj', 'Kumar', 'MGRoad', 'Bengaluru','Karnataka', 560038, 9902545780,'Manojkumar@gmail.com'),
+          -> ('Raj', 'Tarun', 'Kolar', 'Bangarpet','Karnataka', 563114, 8088546145, 'RajTarun@gmail.com');
+
+      Query OK, 2 rows affected (0.25 sec)
+      Records: 2  Duplicates: 0  Warnings: 0
+
+      mysql> SELECT * FROM address_book;
+      +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+      | first_name | last_name | address         | city      | state         | zip    | phone_number | email_id             |
+      +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+      |  Raj       | Tarun     | Kolar           | Bangarpet |  Karnataka    | 563114 | 8088546145   | RajTarun@gmail.com   |
+      |  Manoj     | Kumar     | MGRoad          | Bengaluru |  Karnataka    | 560038 | 9902545780   | Manojkumar@gmail.com |
+      +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
+      2 rows in set (0.04 sec)
+
+    mysql>
