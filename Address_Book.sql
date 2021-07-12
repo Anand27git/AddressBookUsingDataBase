@@ -167,7 +167,7 @@ mysql> SELECT state, count(state) FROM address_book WHERE city = 'kolar' GROUP B
     +-----------+--------------+
 1 row in set (0.00 sec)
 
-/*UC-8-sorting by first_name and last_name
+/* UC-8-sorting by first_name and last_name */
 
 mysql>  SELECT first_name, last_name From address_book ORDER BY first_name, last_name ASC;
 +------------+-----------+
@@ -236,3 +236,26 @@ mysql> SELECT type, count(type) FROM address_book WHERE phone_number  GROUP BY t
 | doctor     |           1 |
 +------------+-------------+
 4 rows in set (0.05 sec)
+
+/* UC-11- adding persons to friends and family address_book  */
+
+mysql> INSERT INTO address_book
+    -> (first_name, last_name, address, city, state, zip, phone_number, email_id,Name,type) VALUES
+    -> ('Thanu', 'shree', 'nagasandra', 'Banglore','Karnataka', 563035, 9963254120, 'thanu@gmail.com','book1','Friend'),
+    -> ('bindhu', 'pani', 'KGroad', 'KGF','Karnataka', 563114, 8977787820, 'bindu@gmail.com','book2','Family');
+Query OK, 2 rows affected (0.17 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+| first_name | last_name | address      | city      | state     | zip    | phone_number | email_id             | Name    | type       |
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+| Dilip      | Kumar     | Banagarpet   | Kolar     | Karnataka | 563114 | 7888898950   | dilip@gmail.com      | prabhu  | Family     |
+| adithya    | rai       | NTRoad       | cochi     | kerala    | 565788 | 7998785454   | allu@gmail.com       | Teacher | Profession |
+| kabir      | singh     | indiranagar  | Banglore  | Karnataka | 563110 | 8971923999   | kabir@gmail.com      | ganesh  | Friend     |
+| bindhu     | pani      | KGroad       | KGF       | Karnataka | 563114 | 8977787820   | bindu@gmail.com      | book2   | Family     |
+| allu       | arjun     | yeshwanthpur | Bangalore | Karnataka | 563256 | 8994578785   | allu12@gmail.com     | satish  | Family     |
+| Manoj      | Kumar     | MGRoad       | Bengaluru | Karnataka | 560038 | 9902545780   | Manojkumar@gmail.com | kamal   | doctor     |
+| Thanu      | shree     | nagasandra   | Banglore  | Karnataka | 563035 | 9963254120   | thanu@gmail.com      | book1   | Friend     |
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+7 rows in set (0.01 sec)
