@@ -224,3 +224,15 @@ mysql> SELECT * FROM address_book;
 +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
 5 rows in set (0.00 sec)
 
+/* UC-10 - number of contact persons in address_book by using type */
+
+mysql> SELECT type, count(type) FROM address_book WHERE phone_number  GROUP BY type;
++------------+-------------+
+| type       | count(type) |
++------------+-------------+
+| Family     |           2 |
+| Profession |           1 |
+| Friend     |           1 |
+| doctor     |           1 |
++------------+-------------+
+4 rows in set (0.05 sec)
