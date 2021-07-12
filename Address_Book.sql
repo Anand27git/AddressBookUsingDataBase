@@ -166,3 +166,17 @@ mysql> SELECT state, count(state) FROM address_book WHERE city = 'kolar' GROUP B
     | Karnataka |            1 |
     +-----------+--------------+
 1 row in set (0.00 sec)
+
+/*UC-8-sorting by first_name and last_name
+
+mysql>  SELECT first_name, last_name From address_book ORDER BY first_name, last_name ASC;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| adithya    | rai       |
+| allu       | arjun     |
+| Dilip      | Kumar     |
+| kabir      | singh     |
+| Manoj      | Kumar     |
++------------+-----------+
+5 rows in set (0.00 sec)
