@@ -138,3 +138,31 @@ mysql> SELECT * FROM address_book
     +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
 4 rows in set (0.00 sec)
 
+/* UC-7- Size of the address_book by city or state */
+
+mysql> SELECT state, count(state) FROM address_book WHERE state = 'Karnataka' GROUP BY state;
+    +-----------+--------------+
+    | state     | count(state) |
+    +-----------+--------------+
+    | Karnataka |            4 |
+    +-----------+--------------+
+    1 row in set (0.00 sec)
+
+mysql> SELECT state, count(state) FROM address_book WHERE state = 'kerala' GROUP BY state;
+    +--------+--------------+
+    | state  | count(state) |
+    +--------+--------------+
+    | kerala |            1 |
+    +--------+--------------+
+    1 row in set (0.00 sec)
+
+mysql> SELECT state, count(state) FROM address_book WHERE city = 'bangarpet' GROUP BY city;
+Empty set (0.00 sec)
+
+mysql> SELECT state, count(state) FROM address_book WHERE city = 'kolar' GROUP BY city;
+    +-----------+--------------+
+    | state     | count(state) |
+    +-----------+--------------+
+    | Karnataka |            1 |
+    +-----------+--------------+
+1 row in set (0.00 sec)
