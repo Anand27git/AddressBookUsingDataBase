@@ -88,3 +88,16 @@ mysql> SELECT * FROM address_book;
       |  Manoj     | Kumar     | MGRoad          | Bengaluru |  Karnataka    | 560038 | 9902545780   | Manojkumar@gmail.com |
       +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
       2 rows in set (0.03 sec)
+
+/* UC-5  delete operation using person name */
+mysql> DELETE FROM address_book WHERE first_name = 'Raj';
+     Query OK, 1 row affected (0.12 sec)
+
+     mysql> SELECT * FROM address_book;
+
+           +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+           | first_name | last_name | address         | city      | state         | zip    | phone_number | email_id             |
+           +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
+           |  Manoj     | Kumar     | MGRoad          | Bengaluru |  Karnataka    | 560038 | 9902545780   | Manojkumar@gmail.com |
+           +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
+           1 rows in set (0.03 sec)
