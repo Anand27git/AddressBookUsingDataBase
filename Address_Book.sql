@@ -180,3 +180,47 @@ mysql>  SELECT first_name, last_name From address_book ORDER BY first_name, last
 | Manoj      | Kumar     |
 +------------+-----------+
 5 rows in set (0.00 sec)
+
+/* UC-9-identifying address_book with name and type */
+
+mysql> ALTER TABLE address_book ADD Name varchar(20) AFTER email_id;
+Query OK, 0 rows affected (4.62 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  UPDATE address_book
+    -> SET name = 'ganesh', type = 'Friend' WHERE first_name = 'kabir';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book
+    -> SET name = 'prabhu', type = 'Family' WHERE first_name = 'Dilip';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book
+    -> SET name = 'Teacher', type = 'Profession' WHERE first_name = 'adithya';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book
+    -> SET name = 'satish', type = 'Family' WHERE first_name = 'allu';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book
+    -> SET name = 'kamal', type = 'doctor' WHERE first_name = 'Manoj';
+Query OK, 1 row affected (0.24 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+| first_name | last_name | address      | city      | state     | zip    | phone_number | email_id             | Name    | type       |
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+| Dilip      | Kumar     | Banagarpet   | Kolar     | Karnataka | 563114 | 7888898950   | dilip@gmail.com      | prabhu  | Family     |
+| adithya    | rai       | NTRoad       | cochi     | kerala    | 565788 | 7998785454   | allu@gmail.com       | Teacher | Profession |
+| kabir      | singh     | indiranagar  | Banglore  | Karnataka | 563110 | 8971923999   | kabir@gmail.com      | ganesh  | Friend     |
+| allu       | arjun     | yeshwanthpur | Bangalore | Karnataka | 563256 | 8994578785   | allu12@gmail.com     | satish  | Family     |
+| Manoj      | Kumar     | MGRoad       | Bengaluru | Karnataka | 560038 | 9902545780   | Manojkumar@gmail.com | kamal   | doctor     |
++------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+---------+------------+
+5 rows in set (0.00 sec)
+
