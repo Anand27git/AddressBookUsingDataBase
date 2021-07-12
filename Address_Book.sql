@@ -93,7 +93,7 @@ mysql> SELECT * FROM address_book;
 mysql> DELETE FROM address_book WHERE first_name = 'Raj';
      Query OK, 1 row affected (0.12 sec)
 
-     mysql> SELECT * FROM address_book;
+ mysql> SELECT * FROM address_book;
 
            +------------+-----------+-----------------+-----------+---------------+--------+--------------+----------------------+
            | first_name | last_name | address         | city      | state         | zip    | phone_number | email_id             |
@@ -101,3 +101,40 @@ mysql> DELETE FROM address_book WHERE first_name = 'Raj';
            |  Manoj     | Kumar     | MGRoad          | Bengaluru |  Karnataka    | 560038 | 9902545780   | Manojkumar@gmail.com |
            +------------+-----------+-----------------+---------+---------------+-------+--------------+-------------------------+
            1 rows in set (0.03 sec)
+
+/* UC-6  finding person by city or state  */
+
+mysql> INSERT INTO address_book
+    -> (first_name, last_name, address, city, state, zip, phone_number, email_id) VALUES
+    -> ('Dilip', 'Kumar', 'Banagarpet', 'Kolar  ','Karnataka', 563114,7888898950, 'dilip@gmail.com'),
+    -> ('adithya', 'rai', 'NTRoad', 'cochi','kerala', 565788,7998785454, 'allu@gmail.com'),
+    -> ('kabir', 'singh', 'indiranagar', ' Banglore','Karnataka',563110 ,8971923999 , 'kabir@gmail.com'),
+    -> ('allu ', 'arjun', 'yeshwanthpur ', 'Bangalore','Karnataka',563256,8994578785, 'allu12@gmail.com');
+
+Query OK, 4 rows affected (0.17 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM address_book;
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+    | first_name | last_name | address      | city      | state     | zip    | phone_number | email_id             |
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+    | Dilip      | Kumar     | Banagarpet   | Kolar     | Karnataka | 563114 | 7888898950   | dilip@gmail.com      |
+    | adithya    | rai       | NTRoad       | cochi     | kerala    | 565788 | 7998785454   | allu@gmail.com       |
+    | kabir      | singh     | indiranagar  | Banglore  | Karnataka | 563110 | 8971923999   | kabir@gmail.com      |
+    | allu       | arjun     | yeshwanthpur | Bangalore | Karnataka | 563256 | 8994578785   | allu12@gmail.com     |
+    | Manoj      | Kumar     | MGRoad       | Bengaluru | Karnataka | 560038 | 9902545780   | Manojkumar@gmail.com |
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM address_book
+    ->  WHERE state = 'karnataka';
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+    | first_name | last_name | address      | city      | state     | zip    | phone_number | email_id             |
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+    | Dilip      | Kumar     | Banagarpet   | Kolar     | Karnataka | 563114 | 7888898950   | dilip@gmail.com      |
+    | kabir      | singh     | indiranagar  | Banglore  | Karnataka | 563110 | 8971923999   | kabir@gmail.com      |
+    | allu       | arjun     | yeshwanthpur | Bangalore | Karnataka | 563256 | 8994578785   | allu12@gmail.com     |
+    | Manoj      | Kumar     | MGRoad       | Bengaluru | Karnataka | 560038 | 9902545780   | Manojkumar@gmail.com |
+    +------------+-----------+--------------+-----------+-----------+--------+--------------+----------------------+
+4 rows in set (0.00 sec)
+
